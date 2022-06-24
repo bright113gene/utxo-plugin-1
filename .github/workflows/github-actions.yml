@@ -3,11 +3,11 @@ on: [push]
 jobs:
 
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Login to DockerHub
-      run: echo ${{ secrets.org_blocknetdximg_password }} | docker login --username ${{ secrets.org_blocknetdximg_username }} --password-stdin
+      run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN  }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME  }} --password-stdin
 
     # Build images
     - name: INFO BUILD
